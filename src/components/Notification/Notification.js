@@ -1,19 +1,12 @@
-import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Notification extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (
-			<>
-				<div>{this.props.message}</div>
-			</>
-		);
-	}
-}
+const Notification = ({ message }) => {
+	return (
+		<>
+			<div>{message}</div>
+		</>
+	);
+};
 
 export default Notification;
 
