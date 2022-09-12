@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 
+import section from './Section.module.css';
+
 const Section = ({ title, children }) => {
 	return (
 		<>
-			<div className="title">{title}</div>
+			<div className={section.title}>{title}</div>
 			{children}
 		</>
 	);
