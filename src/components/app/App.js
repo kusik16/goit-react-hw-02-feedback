@@ -6,14 +6,11 @@ import Section from '../section/Section';
 import Notification from '../Notification/Notification';
 
 class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-			good: 0,
-			neutral: 0,
-			bad: 0,
-		};
-	}
+	state = {
+		good: 0,
+		neutral: 0,
+		bad: 0,
+	};
 
 	countTotalFeedback = (...args) => {
 		return [...args].reduce((a, b) => a + b, 0);
@@ -41,16 +38,12 @@ class App extends Component {
 			<>
 				<Section title="Please leave feedback">
 					<FeedbackOptions
-						options={[
-							{ name: 'good', id: 1 },
-							{ name: 'neutral', id: 2 },
-							{ name: 'bad', id: 3 },
-						]}
+						options={Object.keys(this.state)}
 						onLeaveFeedback={this.onLeaveFeedback}
 					/>
 				</Section>
 				<Section title="Statistics">
-					{good === 0 && neutral === 0 && bad === 0 ? (
+					{total === 0 ? (
 						<Notification message="There is no feedback" />
 					) : (
 						<Statistics
